@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="tocenter">
+    <div id="time">00:00:00</div>
+    <div id="color">#fff</div>
+    <br>
+    <button id="startTime">Start</button>
+    <br>
+    <button id="stopTime">Stop</button>
+    <br>
+    <div id="log"></div>
+</div>
+
+
+<script src="dist/o_clock.js"></script>
+<script>
+    let cl = new clock("#time", "#color");
+    cl.go();
+    let start = document.querySelector("#startTime");
+    let stop = document.querySelector("#stopTime");
+    let log = document.querySelector("#log");
+    start.addEventListener("click", () => {
+        cl.go();
+        log.textContent = "Time started...";
+    });
+    stop.addEventListener("click", () => {
+        cl.stop();
+        log.textContent = "Time stopped...";
+    });
+</script>
+</body>
+</html>
